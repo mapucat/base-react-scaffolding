@@ -1,73 +1,208 @@
-# React + TypeScript + Vite
+# Base react scaffolding
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a comprehensive React TypeScript application.
 
-Currently, two official plugins are available:
+## 📋 Documentation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Comprehensive documentation is available in the `/src/docs/` directory:
 
-## React Compiler
+- 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Technical Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19.1.1 + TypeScript 5.8.3
+- **Build Tool**: Vite 7.1.7
+- **Testing**: Vitest 3.2.4 + Testing Library 16.3.0
+- **Routing**: React Router DOM 7.9.3
+- **Code Quality**: ESLint 9.36.0 + Prettier 3.6.2
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Installation & Setup
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js (v18 or higher)
+- npm or yarn package manager
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Quick Start
+
+1. **Clone and Install**
+
+```bash
+git clone <repository-url>
+cd base-react-scaffolding
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Development Server**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Opens application at `http://localhost:5173`
+
+3. **Build for Production**
+
+```bash
+npm run build
+```
+
+4. **Preview Production Build**
+
+```bash
+npm run preview
+```
+
+## 🔧 Available Scripts
+
+### Development Scripts
+
+```bash
+# Start development server with hot reload
+npm run dev
+
+# Start development with verbose output
+npm run dev -- --mode development
+```
+
+### Build Scripts
+
+```bash
+# Type check and build production bundle
+npm run build
+
+# Build with development dependencies
+npm run build -- --mode development
+
+# Preview built application
+npm run preview
+```
+
+### Code Quality Scripts
+
+```bash
+# Run ESLint across all files
+npm run lint
+
+# Run linting with auto-fix
+npm run lint -- --fix
+
+# Type checking only
+npx tsc --noEmit
+```
+
+### Testing Scripts
+
+```bash
+# Run all tests
+npx vitest
+
+# Run tests in watch mode
+npx vitest --watch
+
+# Run tests with coverage
+npx vitest --coverage
+
+# Run tests in CI mode
+npx vitest --run
+```
+
+### Additional Development Scripts
+
+```bash
+# Format code with Prettier
+npx prettier --write .
+
+# Check code formatting
+npx prettier --check .
+
+# Clean build artifacts
+rm -rf dist/
+
+# Clean node modules and reinstall
+rm -rf node_modules package-lock.json && npm install
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+├── pages/              # Route-based page components
+├── hooks/              # Custom React hooks
+├── context/            # React Context providers
+├── utils/              # Utility functions and helpers
+├── styles/             # Global styles and theme
+├── docs/               # Project documentation
+│   ├── use-cases.md    # Detailed use cases documentation
+│   └── test-scenarios.md # Comprehensive test scenarios
+└── assets/             # Static assets (images, icons, etc.)
+```
+
+## 🧪 Testing Strategy
+
+### Test Coverage Areas
+
+- **Unit Tests**: Individual component and hook testing
+- **Integration Tests**: API integration and data flow
+- **End-to-End Tests**: Complete conversion workflows
+
+### Test Data Management
+
+```bash
+# Set up test environment
+npm run test:setup
+
+# Run all test suites
+npm run test:all
+
+# Run specific test categories
+npm run test:unit
+npm run test:integration
+npm run test:e2e
+```
+
+## 🚀 Deployment Considerations
+
+### Environment Configuration
+
+```bash
+# Development
+npm run serve:dev
+
+# Staging
+npm run serve:staging
+
+# Production
+npm run serve:prod
+```
+
+## 🤝 Contributing
+
+### Development Workflow
+
+1. Create feature branch from `main`
+2. Implement changes with tests
+3. Run linting and formatting
+4. Submit pull request for review
+
+### Code Standards
+
+- TypeScript strict mode enabled
+- ESLint configuration enforced
+- Prettier formatting standards
+- Conventional commit messages
+
+## 📞 Support
+
+For technical questions or issues:
+
+- Check documentation in `/src/docs/`
+
+## 📄 License
+
+This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
+
+---
+
+_Built with ⚡ React + TypeScript + Vite for modern web development_
